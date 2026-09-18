@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stralinhoper — Build Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --graphite: #14181C;
+    --panel: #1D2329;
+    --panel-line: #2C333A;
+    --paper: #EDEAE3;
+    --paper-dim: #9BA3AC;
+    --copper: #C97A3D;
+    --copper-dim: #8A5730;
+    --ok: #7C9A6E;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--graphite);
+    color: var(--paper);
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  h1, h2, h3, .mono-label {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  a { color: var(--copper); text-decoration: none; }
+  a:hover, a:focus-visible { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
+
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero */
+  header.hero {
+    padding: 96px 0 64px;
+    border-bottom: 1px solid var(--panel-line);
+    opacity: 0;
+    animation: rise 0.7s ease-out forwards;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    header.hero { animation: none; opacity: 1; }
+  }
+
+  .hero .kicker {
+    color: var(--copper);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+
+  header.hero h1 {
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+  }
+
+  header.hero p {
+    max-width: 52ch;
+    color: var(--paper-dim);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  /* Section headings */
+  section { padding: 56px 0; border-bottom: 1px solid var(--panel-line); }
+  section:last-of-type { border-bottom: none; }
+
+  section h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--paper);
+    margin: 0 0 8px;
+  }
+
+  section > .lede {
+    color: var(--paper-dim);
+    font-size: 0.98rem;
+    margin: 0 0 32px;
+    max-width: 55ch;
+  }
+
+  /* Log entries */
+  .entry {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--panel-line);
+  }
+  .entry:first-of-type { border-top: none; }
+
+  .entry .status {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding-top: 3px;
+  }
+  .status.built { color: var(--ok); }
+  .status.active { color: var(--copper); }
+
+  .entry h3 {
+    margin: 0 0 6px;
+    font-size: 1.08rem;
+    font-weight: 600;
+  }
+
+  .entry p {
+    margin: 0;
+    color: var(--paper-dim);
+    font-size: 0.97rem;
+  }
+
+  @media (max-width: 520px) {
+    .entry { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* Empty state */
+  .empty-note {
+    border: 1px dashed var(--panel-line);
+    border-radius: 4px;
+    padding: 24px;
+    color: var(--paper-dim);
+    font-size: 0.95rem;
+  }
+
+  /* About */
+  #about p { max-width: 60ch; }
+
+  /* Contact */
+  #contact .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.98rem;
+  }
+
+  footer {
+    padding: 40px 0 60px;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="kicker">Build log</p>
+    <h1>I build things, take them apart, and write down what happened.</h1>
+    <p>Student working on hardware and software projects — drones, refurbished machines, and a few experiments that don't fit a category yet. This page tracks what's actually finished, not what's planned.</p>
+  </header>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p class="lede">Each entry goes up once the project is working, not before.</p>
+
+    <div class="empty-note">
+      Nothing posted yet — the first build writeup goes here once it's done. Check back soon.
+    </div>
+
+    <!--
+      Template for a finished project entry:
+
+      <div class="entry">
+        <div class="status built">BUILT</div>
+        <div>
+          <h3>Project name</h3>
+          <p>One or two sentences: what it is, what you did, what it does now.</p>
+        </div>
+      </div>
+    -->
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I'm a student who'd rather learn by building than by reading about it. Most of what's here starts as a weekend project and gets refined over time. I'm currently getting a home lab together to learn networking and security fundamentals before I host anything myself — so for now, everything lives here.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="links">
+      <a href="mailto:youremail@example.com">youremail@example.com</a>
+      <a href="https://github.com/stralinhoper">github.com/stralinhoper</a>
+    </div>
+  </section>
+
+  <footer>
+    Built and maintained by hand. Last updated as projects finish.
+  </footer>
+</div>
+
+</body>
+</html>
