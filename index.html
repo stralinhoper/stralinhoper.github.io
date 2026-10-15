@@ -142,6 +142,10 @@
     font-weight: 600;
   }
 
+  .shots{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .shots img{width:calc(50% - 5px);max-width:100%;height:auto;border:1px solid var(--panel-line);border-radius:4px}
+  .shots.three img{width:calc(33.333% - 7px)}
+  @media (max-width:520px){.shots img,.shots.three img{width:100%}}
   @media (max-width: 520px) {
     .entry { grid-template-columns: 1fr; gap: 6px; }
   }
@@ -202,6 +206,7 @@
         <h3>VEX Clawbot</h3>
         <p>Built from the standard VEX V5 Clawbot kit — chassis, claw arm, and drivetrain assembled per the official build manual. No autonomous or driver-control code written yet; that's next. Photos and video going up here as the build and programming progress.</p>
         <p><a href="https://content.vexrobotics.com/docs/V5-Clawbot-BuildInstructions.pdf" target="_blank" rel="noopener">Official VEX Clawbot build manual &rarr;</a></p>
+        <div class="shots"><img src="vex_0067.jpg" alt="VEX Clawbot with controller on top" loading="lazy"><img src="vex_0068.jpg" alt="VEX Clawbot claw and drivetrain" loading="lazy"></div>
       </div>
     </div>
 
@@ -234,6 +239,7 @@
       <div>
         <h3>E-Waste Refurbishing</h3>
         <p>A school project collecting donated computers and laptops, repairing them, and giving them to students who need one. Currently working on lining up a steadier supply of donated hardware.</p>
+        <div class="shots three"><img src="laptop_0101.jpg" alt="Dell diagnostics screen on a refurbished laptop" loading="lazy"><img src="laptop_0069.jpg" alt="Dell Inspiron laptop running Linux Mint" loading="lazy"><img src="laptop_0070.jpg" alt="Underside of a Dell Inspiron showing drive bay and WLAN card" loading="lazy"></div>
       </div>
     </div>
 
